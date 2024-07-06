@@ -1157,6 +1157,47 @@ class ufo_product_tabs_addons extends Widget_Base
                 'selector' => '{{WRAPPER}} .ufo-product-tab-wrapper .tab-content .free-item .free-item-wrap .free-text',
             ]
         );
+        $this->add_responsive_control(
+            'tbfree_image',
+            [
+                'label' => esc_html__('Free Image', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 1000,
+                        'step' => 1,
+                    ],
+                    '%' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .ufo-product-tab-wrapper .tab-content .free-item .free-item-wrap .free-image img' => 'width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->add_group_control(
+            \Elementor\Group_Control_Border::get_type(),
+            [
+                'name' => 'tbfree_image_border',
+                'label' => __('Free Image Border', 'textdomain'),
+                'selector' => '{{WRAPPER}} .ufo-product-tab-wrapper .tab-content .free-item .free-item-wrap .free-image img',
+            ]
+        );
+        $this->add_responsive_control(
+            'tbfree_image_border_radius',
+            [
+                'label' => esc_html__('Free Image Border Radius', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em', 'rem'],
+                'selectors' => [
+                    '{{WRAPPER}} .ufo-product-tab-wrapper .tab-content .free-item .free-item-wrap .free-image img' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
         $this->add_group_control(
             Group_Control_Background::get_type(),
             [
